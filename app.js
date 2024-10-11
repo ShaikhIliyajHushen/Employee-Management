@@ -23,6 +23,9 @@ async function main() {
 }
 main().catch(err => console.log(err))
 
+app.get('/', (req, res) => {
+  res.status(200).send('Server is up and running');
+});
 
 
 // view engine setup
