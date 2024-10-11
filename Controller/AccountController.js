@@ -33,7 +33,6 @@ const sendEmail = require('./EmailService')
 
 let createEmpAccount = async function (req, res, next) {
   const { email } = req.body;
-
   try {
     // Check if the email already exists in SignUpSchema
     const existingUser = await SignUpSchema.findOne({ email: email });

@@ -1,4 +1,5 @@
 var createError = require('http-errors');
+require('dotenv').config();
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -15,7 +16,9 @@ var app = express();
 app.use(cors())
 
 async function main() {
-  const url = 'mongodb+srv://iliyaj:Dd04gLl4ctlSULC5@cluster0.jgt1roc.mongodb.net/EmployeedDetails?retryWrites=true&w=majority';
+  // const url = 'mongodb+srv://iliyaj:Dd04gLl4ctlSULC5@cluster0.jgt1roc.mongodb.net/EmployeedDetails?retryWrites=true&w=majority';
+  // const url ='mongodb+srv://iliyajhushen84:P6i6HLBxYFIKthRT@cluster0.da2ds.mongodb.net/EmployeedDetails?retryWrites=true&w=majority&appName=Cluster0';
+  const url = process.env.MONGODB
   await mongoose.connect(url);
 }
 main().catch(err => console.log(err))
