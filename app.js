@@ -13,7 +13,22 @@ var usersRouter = require('./routes/users');
 var empAccountRouter = require('./routes/emproutes');
 
 var app = express();
-app.use(cors())
+// app.use(cors())
+
+const corsOptions = {
+  origin: 'https://employee-m-client.vercel.app', // Frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true, // If you're dealing with cookies or authentication headers
+};
+
+// Enable CORS for all routes
+app.use(cors(corsOptions));
+
+// Handle preflight requests for CORS
+app.options('*', cors(corsOptions));
+
+
+
 
 async function main() {
   // const url = 'mongodb+srv://iliyaj:Dd04gLl4ctlSULC5@cluster0.jgt1roc.mongodb.net/EmployeedDetails?retryWrites=true&w=majority';
