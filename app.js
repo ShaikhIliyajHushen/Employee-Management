@@ -16,9 +16,9 @@ var app = express();
 // app.use(cors())
 
 const corsOptions = {
-  origin: 'https://employee-m-client.vercel.app', // Frontend URL
+  origin: 'https://employee-m-client.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true, // If you're dealing with cookies or authentication headers
+  credentials: true,
 };
 
 // Enable CORS for all routes
@@ -31,8 +31,6 @@ app.options('*', cors(corsOptions));
 
 
 async function main() {
-  // const url = 'mongodb+srv://iliyaj:Dd04gLl4ctlSULC5@cluster0.jgt1roc.mongodb.net/EmployeedDetails?retryWrites=true&w=majority';
-  // const url ='mongodb+srv://iliyajhushen84:P6i6HLBxYFIKthRT@cluster0.da2ds.mongodb.net/EmployeedDetails?retryWrites=true&w=majority&appName=Cluster0';
   const url = process.env.MONGODB
   await mongoose.connect(url);
 }
